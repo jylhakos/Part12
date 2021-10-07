@@ -1,0 +1,11 @@
+Script started on 2021-10-07 10:53:26+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ exitnano exercise12_2.txt ls -la[Kcd script-answers/mv exercise12_2.txt script-answers/.ls -la[Knano exercise12_2.txt ls -la[Kmv typescript exercise12_2.txtls -la[Ksudo docker container run -it ubuntu bash
+[sudo] password for laptop: 
+]0;root@0830f7634579: /root@0830f7634579:/# [K]0;root@0830f7634579: /root@0830f7634579:/# mkdir /usr/src/app
+]0;root@0830f7634579: /root@0830f7634579:/# touch /usr/src/app/index.js
+]0;root@0830f7634579: /root@0830f7634579:/# [Kexit
+exit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ exit
+exit
+
+Script done on 2021-10-07 10:54:33+0800
