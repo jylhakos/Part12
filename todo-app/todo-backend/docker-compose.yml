@@ -1,0 +1,11 @@
+# docker-compose.yml
+# $ docker-compose up --build
+
+version: '3.8'
+
+services:
+  app:
+    image: todo-backend
+    build: .
+    ports:
+      - 3000:3000

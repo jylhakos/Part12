@@ -9,13 +9,13 @@
 
 FROM node:16
 
-USER node
+# USER node
 
 WORKDIR /usr/src/app
 
 # COPY . .
 
-COPY --chown=node:node . .
+COPY --chown=$USER:$USER . .
 
 RUN npm install
 
@@ -24,5 +24,7 @@ RUN npm install
 ENV DEBUG=playground:*
 
 # CMD DEBUG=playground:* npm start
+
+USER $USER
 
 CMD npm start
