@@ -1,0 +1,350 @@
+Script started on 2021-10-12 08:27:33+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ docker exec -it f1e481cc152d bash
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# mongo --username root --password example
+MongoDB shell version v5.0.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("9f197a07-ed8b-4beb-aa93-9ce8354bddf8") }
+MongoDB server version: 5.0.3
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+We recommend you begin using "mongosh".
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-10-12T00:09:03.228+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database[3G[Juse the_database[19G
+switched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> db.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[3G[Jdb.todos.insertOne[1;34m([0m { text: "Increase the number of tools in my toolbelt", done: false } )[92G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[91G[3G[Jdb.todos.insertOne( [1;34m{[0m text: "Increase the number of tools in my toolbelt", done: false } )[90G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fal } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done:  } )[84G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: t } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: true } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: t } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done:  } )[84G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fal } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[93G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("6164d6d607a3d83d17ff974b")
+}
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+{ "_id" : ObjectId("6164d6d607a3d83d17ff974b"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> exit[3G[Jexit[7G
+bye
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# [Kexit
+exit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ ls -la
+total 456
+drwxrwxrwx 2 laptop laptop   4096 Oct 12 08:27 [0m[34;42m.[0m
+drwxrwxrwx 6 laptop laptop   4096 Oct 10 12:08 [34;42m..[0m
+-rwxrwxrwx 1 laptop laptop 334360 Oct  7 09:15 [01;32mexercise12_1.txt[0m
+-rwxrwxrwx 1 laptop laptop   1105 Oct  7 10:54 [01;32mexercise12_2.txt[0m
+-rwxrwxrwx 1 laptop laptop  23141 Oct  7 11:14 [01;32mexercise12_3.txt[0m
+-rwxrwxrwx 1 laptop laptop  89946 Oct  7 11:34 [01;32mexercise12_4.txt[0m
+-rwxrwxrwx 1 laptop laptop      0 Oct  6 19:20 [01;32m.gitkeep[0m
+-rw-rw-r-- 1 laptop laptop   4096 Oct 12 08:28 typescript
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ more typescript 
+Script started on 2021-10-12 08:27:33+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+LSTACKOPEN/Part12/script-answers[00m$ docker exec -it f1e481cc152d bash
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# mongo --username root --password example
+MongoDB shell version v5.0.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("9f197a07-ed8b-4beb-aa93-9ce8354bddf8") }
+MongoDB server version: 5.0.3
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+We recommend you begin using "mongosh".
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-10-12T00:09:03.228+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://d
+ochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+[7m--More--(34%)[27m        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+[7m--More--(37%)[27m        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database[3G[Juse the_database[19G
+switched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> db.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[3G[Jdb.todos.insertOne[1;34m([0m { text: "I
+ncrease the number of tools in my toolbelt", done: false } )[92G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my too
+lbelt", done: false } )[91G[3G[Jdb.todos.insertOne( [1;34m{[0m text: "Increase the number of tools in my toolbelt", done: false } )[90G[
+3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Incr
+ease the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbel
+t", done: fal } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.inser
+[7m--More--(86%)[27mtOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of too
+ls in my toolbelt", done:  } )[84G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: t } )[85G[3G[Jdb
+.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the 
+number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: 
+true } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { 
+text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in m
+y toolbelt", done: t } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done:  } )[84G[3G[Jdb.todos.
+insertOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number o
+f tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fal } )[8
+7G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "In
+crease the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my tool
+belt", done: false } )[93G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("6164d6d607a3d83d17ff974b")
+}
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+{ "_id" : ObjectId("6164d6d607a3d83d17ff974b"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> exit[3G[Jexit[7G
+bye
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# [Kexit
+exit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+LSTACKOPEN/Part12/script-answers[00m$ ls -la
+total 456
+[7m--More--(145%)[27mdrwxrwxrwx 2 laptop laptop   4096 Oct 12 08:27 [0m[34;42m.[0m
+drwxrwxrwx 6 laptop laptop   4096 Oct 10 12:08 [34;42m..[0m
+-rwxrwxrwx 1 laptop laptop 334360 Oct  7 09:15 [01;32mexercise12_1.txt[0m
+-rwxrwxrwx 1 laptop laptop   1105 Oct  7 10:54 [01;32mexercise12_2.txt[0m
+-rwxrwxrwx 1 laptop laptop  23141 Oct  7 11:14 [01;32mexercise12_3.txt[0m
+-rwxrwxrwx 1 laptop laptop  89946 Oct  7 11:34 [01;32mexercise12_4.txt[0m
+-rwxrwxrwx 1 laptop laptop      0 Oct  6 19:20 [01;32m.gitkeep[0m
+-rw-rw-r-- 1 laptop laptop   4096 Oct 12 08:28 typescript
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+LSTACKOPEN/Part12/script-answers[00m$ more typescript 
+Script started on 2021-10-12 08:27:33+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+
+LSTACKOPEN/Part12/script-answers[00m$ docker exec -it f1e481cc152d bash
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# mongo --username root --password example
+MongoDB shell version v5.0.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("9f197a07-ed8b-4beb-aa93-9ce8354bddf8") }
+MongoDB server version: 5.0.3
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+We recommend you begin using "mongosh".
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+[7m--More--(188%)[27mFor interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-10-12T00:09:03.228+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://d
+
+ochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+[7m--More--(34%)[27m        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+[7m--More--(37%)[27m        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database[3G[Juse the_database[19G
+[7m--More--(221%)[27mswitched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> db.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[3G[Jdb.todos.insertOne[1;34m([0m { text: "I
+
+ncrease the number of tools in my toolbelt", done: false } )[92G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my too
+
+lbelt", done: false } )[91G[3G[Jdb.todos.insertOne( [1;34m{[0m text: "Increase the number of tools in my toolbelt", done: false } )[90G[
+
+3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Incr
+
+ease the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbel
+
+t", done: fal } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.inser
+
+[7m--More--(86%)[27mtOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of too
+
+ls in my toolbelt", done:  } )[84G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: t } )[85G[3G[Jdb
+
+.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the 
+
+number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: 
+
+true } )[88G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: tru } )[87G[3G[Jdb.todos.insertOne( { 
+[7m--More--(270%)[27m[K
+text: "Increase the number of tools in my toolbelt", done: tr } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in m
+
+y toolbelt", done: t } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done:  } )[84G[3G[Jdb.todos.
+
+insertOne( { text: "Increase the number of tools in my toolbelt", done: f } )[85G[3G[Jdb.todos.insertOne( { text: "Increase the number o
+
+f tools in my toolbelt", done: fa } )[86G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fal } )[8
+
+7G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my toolbelt", done: fals } )[88G[3G[Jdb.todos.insertOne( { text: "In
+
+crease the number of tools in my toolbelt", done: false } )[89G[3G[Jdb.todos.insertOne( { text: "Increase the number of tools in my tool
+
+belt", done: false } )[93G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("6164d6d607a3d83d17ff974b")
+}
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6164d21e6105c558b0abfffb"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffc"), "text" : "Learn about containers", "done" : true }
+{ "_id" : ObjectId("6164d21e6105c558b0abfffd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+{ "_id" : ObjectId("6164d6d607a3d83d17ff974b"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> exit[3G[Jexit[7G
+bye
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# [Kexit
+exit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+[7m--More--(311%)[27m[K
+LSTACKOPEN/Part12/script-answers[00m$ ls -la
+total 456
+[7m--More--(145%)[27mdrwxrwxrwx 2 laptop laptop   4096 Oct 12 08:27 [0m[34;42m.[0m
+drwxrwxrwx 6 laptop laptop   4096 Oct 10 12:08 [34;42m..[0m
+-rwxrwxrwx 1 laptop laptop 334360 Oct  7 09:15 [01;32mexercise12_1.txt[0m
+-rwxrwxrwx 1 laptop laptop   1105 Oct  7 10:54 [01;32mexercise12_2.txt[0m
+-rwxrwxrwx 1 laptop laptop  23141 Oct  7 11:14 [01;32mexercise12_3.txt[0m
+-rwxrwxrwx 1 laptop laptop  89946 Oct  7 11:34 [01;32mexercise12_4.txt[0m
+-rwxrwxrwx 1 laptop laptop      0 Oct  6 19:20 [01;32m.gitkeep[0m
+-rw-rw-r-- 1 laptop laptop   4096 Oct 12 08:28 typescript
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+
+LSTACKOPEN/Part12/script-answers[00m$ more typescript 
+Script started on 2021-10-12 08:27:33+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FUL
+
+
+LSTACKOPEN/Part12/script-answers[00m$ docker exec -it f1e481cc152d bash
+]0;root@f1e481cc152d: /root@f1e481cc152d:/# mongo --username root --password example
+MongoDB shell version v5.0.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("9f197a07-ed8b-4beb-aa93-9ce8354bddf8") }
+MongoDB server version: 5.0.3
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+[7m--More--(351%)[27mWe recommend you begin using "mongosh".
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+[7m--More--(188%)[27mFor interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-10-12T00:09:03.228+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://d
+
+
+ochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+[7m--More--(34%)[27m        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+[7m--More--(37%)[27m        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+[7m--More--(385%)[27m[K]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ mv typescript exercise12_8.txt
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ ls -la
+total 472
+drwxrwxrwx 2 laptop laptop   4096 Oct 12 08:30 [0m[34;42m.[0m
+drwxrwxrwx 6 laptop laptop   4096 Oct 10 12:08 [34;42m..[0m
+-rwxrwxrwx 1 laptop laptop 334360 Oct  7 09:15 [01;32mexercise12_1.txt[0m
+-rwxrwxrwx 1 laptop laptop   1105 Oct  7 10:54 [01;32mexercise12_2.txt[0m
+-rwxrwxrwx 1 laptop laptop  23141 Oct  7 11:14 [01;32mexercise12_3.txt[0m
+-rwxrwxrwx 1 laptop laptop  89946 Oct  7 11:34 [01;32mexercise12_4.txt[0m
+-rw-rw-r-- 1 laptop laptop  20480 Oct 12 08:30 exercise12_8.txt
+-rwxrwxrwx 1 laptop laptop      0 Oct  6 19:20 [01;32m.gitkeep[0m
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/script-answers[00m$ cd ..
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12[00m$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mscript-answers/exercise12_8.txt[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12[01;32mlaptop@computer[00m:[01;34m~/UNIVERSI
