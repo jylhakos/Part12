@@ -1,9 +1,13 @@
 const express = require('express');
+
 const router = express.Router();
+
+// 12.9
+const redis = require('../redis')
 
 const configs = require('../util/config')
 
-let visits = 0
+let visits = 0;
 
 /* GET index data. */
 router.get('/', async (req, res) => {
