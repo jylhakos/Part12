@@ -1,0 +1,43 @@
+Script started on 2021-10-13 08:00:36+0800
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ docker container ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+99118d6fa9af   mongo          "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend_mongo_1
+bf4bdd0d1f54   redis:latest   "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp     todo-backend_redis_1
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ docker exec -it bf4bdd0d1f54 bash
+[?2004hroot@bf4bdd0d1f54:/data# [Kroot@bf4bdd0d1f54:/data# [7mredis-cli -h localhost -p 6379[27mroot@bf4bdd0d1f54:/data# redis-cli -h localhost -p 6379
+[?2004llocalhost:6379> [0Klocalhost:6379> K[17C[0Klocalhost:6379> KE[18C[0Klocalhost:6379> KEY[19C[0Klocalhost:6379> KEYS[0;90;49m pattern[0m[20C[0Klocalhost:6379> KEYS [0;90;49mpattern[0m[21C[0Klocalhost:6379> KEYS *[0;90;49m [0m[22C[0Klocalhost:6379> KEYS *[22C
+1) "key"
+localhost:6379> [0Klocalhost:6379> G[17C[0Klocalhost:6379> GE[18C[0Klocalhost:6379> GET[0;90;49m key[0m[19C[0Klocalhost:6379> GET [0;90;49mkey[0m[20C[0Klocalhost:6379> GET k[0;90;49m [0m[21C[0Klocalhost:6379> GET ke[0;90;49m [0m[22C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET key[23C
+"1"
+localhost:6379> [0Klocalhost:6379> S[17C[0Klocalhost:6379> SE[18C[0Klocalhost:6379> SET[0;90;49m key value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[19C[0Klocalhost:6379> SET [0;90;49mkey value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[20C[0Klocalhost:6379> SET k[0;90;49m value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[21C[0Klocalhost:6379> SET ke[0;90;49m value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[22C[0Klocalhost:6379> SET key[0;90;49m value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[23C[0Klocalhost:6379> SET key [0;90;49mvalue [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[24C[0Klocalhost:6379> SET key 9[0;90;49m [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[25C[0Klocalhost:6379> SET key 90[0;90;49m [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[26C[0Klocalhost:6379> SET key 900[0;90;49m [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[27C[0Klocalhost:6379> SET key 9001[0;90;49m [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[28C[0Klocalhost:6379> SET key 9001[28C
+OK
+localhost:6379> [0Klocalhost:6379> SET key 9001[0;90;49m [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET][0m[28C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET key[23C
+"9001"
+localhost:6379> [0Klocalhost:6379> e[17C[0Klocalhost:6379> ex[18C[0Klocalhost:6379> exi[19C[0Klocalhost:6379> exit[20C[0Klocalhost:6379> exit[20C
+[?2004hroot@bf4bdd0d1f54:/data# exit
+[?2004lexit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ curl http://localhost:3000/statistics
+{"added_todos":"9001"}]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ curl http://localhost:3000/statistics[4Pdocker exec -it bf4bdd0d1f54 bash[14Pcontainer psexec -it bf4bdd0d1f54 bash
+[?2004hroot@bf4bdd0d1f54:/data# [Kroot@bf4bdd0d1f54:/data# exitredis-cli -h localhost -p 6379
+[?2004llocalhost:6379> [0Klocalhost:6379> exit[20C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET key[23C
+"9001"
+localhost:6379> [0Klocalhost:6379> e[17C[0Klocalhost:6379> ex[18C[0Klocalhost:6379> exi[19C[0Klocalhost:6379> exit[20C[0Klocalhost:6379> exit[20C
+[?2004hroot@bf4bdd0d1f54:/data# exit
+[?2004lexit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ curl -X POST --header "Content-Type: application/json" --data '{"textt":"Create a new todo", "done": "true" }' http://localhost:3000/todos/
+{"_id":"61662263fb9ef35d9339e164","text":"Create a new todo","done":true,"__v":0}]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ curl -X POST --header "Content-Type: application/json" --data '{"textt":"Create a new todo", "done": "true" }' http://localhost:3000/todos/[A]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ [35Pdocker exec -it bf4bdd0d1f54 bash
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004hroot@bf4bdd0d1f54:/data# [Kroot@bf4bdd0d1f54:/data# exitredis-cli -h localhost -p 6379
+[?2004llocalhost:6379> [0Klocalhost:6379> exit[20C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET key[23C
+"9002"
+localhost:6379> [0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> exit[20C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET ke[0;90;49m [0m[22C[0Klocalhost:6379> GET k[0;90;49m [0m[21C[0Klocalhost:6379> GET [0;90;49mkey[0m[20C[0Klocalhost:6379> GET[0;90;49m key[0m[19C[0Klocalhost:6379> GE[18C[0Klocalhost:6379> G[17C[0Klocalhost:6379> [16C[0Klocalhost:6379> G[17C[0Klocalhost:6379> GE[18C[0Klocalhost:6379> GET[0;90;49m key[0m[19C[0Klocalhost:6379> GETD[20C[0Klocalhost:6379> GETDE[21C[0Klocalhost:6379> GETDEL[0;90;49m key[0m[22C[0Klocalhost:6379> GETDEL [0;90;49mkey[0m[23C[0Klocalhost:6379> GETDEL k[0;90;49m [0m[24C[0Klocalhost:6379> GETDEL ke[0;90;49m [0m[25C[0Klocalhost:6379> GETDEL key[0;90;49m [0m[26C[0Klocalhost:6379> GETDEL key[26C
+"9002"
+localhost:6379> [0Klocalhost:6379> GETDEL key[0;90;49m [0m[26C[0Klocalhost:6379> GET key[0;90;49m [0m[23C[0Klocalhost:6379> GET key[23C
+(nil)
+localhost:6379> [0Klocalhost:6379> e[17C[0Klocalhost:6379> ex[18C[0Klocalhost:6379> exi[19C[0Klocalhost:6379> exit[20C[0Klocalhost:6379> exit[20C
+[?2004hroot@bf4bdd0d1f54:/data# exit
+[?2004lexit
+]0;laptop@computer: ~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[01;32mlaptop@computer[00m:[01;34m~/UNIVERSITY/CS-E4670/FULLSTACKOPEN/Part12/todo-app/todo-backend[00m$ exit
+exit
+
+Script done on 2021-10-13 08:05:06+0800
