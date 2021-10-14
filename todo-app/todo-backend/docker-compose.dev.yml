@@ -1,12 +1,11 @@
 # docker-compose.dev.yml
+# $ npm install
 # $ docker-compose -f docker-compose.dev.yml down --volumes
+# $ docker-compose -f docker-compose.dev.yml down
 # $ docker network prune
 # $ netstat -tulpn | grep 6379
 # $ docker-compose -f docker-compose.dev.yml up
 # $ docker network create local_docker_network --subnet 10.0.1.0/24
-# $ npm install nodemon --save-dev
-# $ npm install express --save
-# $ npm install
 # $ MONGO_URL=mongodb://localhost:3456/the_database REDIS_URL=redis://localhost:6378 npm run dev
 # $ docker exec -it <CONTAINER ID> bash
 # http://localhost:3000/todos
@@ -28,11 +27,13 @@ services:
   redis:
     image: redis:latest
     ports:
-      - 6379:6379
+      - 6378:6378
     expose:
-      - "6379"
+      - "6378"
     #entrypoint: redis-server --appendonly yes
-    command: redis-server --port 6379 --appendonly yes
+    #command: ['redis-server', 'port', 6378, '--appendonly', 'yes']
+    command: redis-server --port 6378 --appendonly yes
+
     volumes:
       - redis_data:/data
 volumes:

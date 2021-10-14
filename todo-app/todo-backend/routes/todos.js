@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
 
   const todo = await Todo.create({
     text: req.body.text,
-    done: req.body.done
+    done: false
   })
 
   //counter = counter + 1;
