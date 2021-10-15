@@ -1,0 +1,23 @@
+# docker-compose.dev.yml
+# $ npm install
+# $ docker-compose -f docker-compose.yml down --volumes
+# $ docker-compose -f docker-compose.yml down
+# $ docker-compose -f docker-compose.dev.yml up --build
+# $ docker exec -it <CONTAINER ID> bash
+# http://localhost:3001/
+
+version: '3.8'
+
+services:
+  app:
+    image: todo-frontend
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app 
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    container_name: todo-frontend

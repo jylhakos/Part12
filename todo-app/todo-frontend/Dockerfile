@@ -10,15 +10,13 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm config set package-lock false
+# RUN npm config set package-lock false
 
-RUN npm install -g npm@latest
+# RUN npm install -g npm@latest
 
 # RUN npm install
 
 RUN npm ci
-
-RUN npm run build
 
 RUN CI=true npm test
 
