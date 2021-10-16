@@ -14,7 +14,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8088:80
-    container_name: reverse-proxy
+    container_name: reverse-proxy-frontend
   app:
     image: todo-frontend-dev
     build:
