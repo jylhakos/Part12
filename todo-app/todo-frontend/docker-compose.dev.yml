@@ -2,6 +2,7 @@
 # $ npm install
 # $ docker-compose -f docker-compose.dev.yml down --volumes
 # $ docker-compose -f docker-compose.dev.yml up --build
+# $ docker-compose run debug-helper wget -O - http://todo-frontend-dev:3001
 # http://localhost:3001/
 
 version: '3.8'
@@ -21,3 +22,5 @@ services:
     environment:
       - PORT=3001
     container_name: todo-frontend-dev
+  debug-helper:
+    image: busybox

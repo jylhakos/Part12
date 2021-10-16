@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
   const statistics = {'added_todos': value};
 
-  console.log('statistics', statistics, value);
+  console.log('statistics:', statistics, value);
 
   res.json(statistics);
 });

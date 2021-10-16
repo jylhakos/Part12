@@ -1,0 +1,31 @@
+# Dockerfile
+# $ export DOCKER_API_VERSION=1.39
+# $ docker build -t todo-backend-dev .
+# $ docker run -p 3000:3000 todo-backend-dev
+# http://localhost:3000/
+
+FROM node:16
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app/
+
+COPY ./package.json .
+
+COPY ./package-lock.json .
+
+COPY . .
+
+RUN apt-get update
+
+RUN npm install -g npm@latest
+
+RUN npm install -g nodemon
+
+RUN npm install
+   
+# ENV MONGO_URL='mongodb://the_username:the_password@mongo:3456/the_database'
+
+# ENV REDIS_URL='redis://redis:6378'
+
+CMD npm start --port 3000

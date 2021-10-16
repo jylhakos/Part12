@@ -4,8 +4,8 @@
 # $ docker-compose -f docker-compose.dev.yml down
 # $ docker network prune
 # $ netstat -tulpn | grep 6379
-# $ docker-compose -f docker-compose.dev.yml up
-# $ docker network create local_docker_network --subnet 10.0.1.0/24
+# $ docker-compose -f docker-compose.dev.yml up --build
+# $ docker network create docker_network --subnet 10.0.1.0/24
 # $ MONGO_URL=mongodb://localhost:3456/the_database REDIS_URL=redis://localhost:6378 npm run dev
 # $ docker exec -it <CONTAINER ID> bash
 # http://localhost:3000/todos
@@ -13,27 +13,46 @@
 version: '3.8'
 
 services:
+  server:
+    image: todo-backend-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+      - REDIS_URL=redis://redis:6378
+    depends_on:
+      - mongo
+      - redis
   mongo:
     image: mongo
     ports:
-      - 3456:27017
+      - 27017:27017
+    expose:
+      - "27017"
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - ./mongo_data:/data/db
     environment:
-      #MONGO_INITDB_ROOT_USERNAME: root
-      #MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: the_database
   redis:
     image: redis:latest
     ports:
       - 6378:6378
-    expose:
-      - "6378"
+    #expose:
+    #  - "6378"
     #entrypoint: redis-server --appendonly yes
     #command: ['redis-server', 'port', 6378, '--appendonly', 'yes']
-    command: redis-server --port 6378 --appendonly yes
-
+    command: ['redis-server', '--port', '6378', '--appendonly', 'yes']
     volumes:
       - redis_data:/data
 volumes:

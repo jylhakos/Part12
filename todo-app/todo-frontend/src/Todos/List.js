@@ -1,13 +1,11 @@
 import React from 'react'
 
 const TodoList = ({ todos, deleteTodo, completeTodo }) => {
-
   const onClickDelete = (todo) => () => {
     deleteTodo(todo)
   }
 
   const onClickComplete = (todo) => () => {
-
     completeTodo(todo)
   }
 
