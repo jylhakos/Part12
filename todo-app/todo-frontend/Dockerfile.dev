@@ -26,7 +26,7 @@ RUN npm run build
 
 RUN ls -l /usr/src/app
 
-ENV REACT_APP_BACKEND_URL=http://server:3000/
+ENV REACT_APP_BACKEND_URL=http://localhost:3000/
 
 # ENV PORT=3001
 
