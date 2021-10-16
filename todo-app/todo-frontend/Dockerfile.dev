@@ -2,7 +2,7 @@
 # $ docker build -f Dockerfile.dev -t todo-frontend-dev
 # $ docker run -p 3001:3001 -v "$(pwd):/usr/src/app/" todo-frontend-dev
 # $ docker exec -it <CONTAINER ID> bash
-# http://localhost:3001/
+# http://app:3001/
 
 FROM node:16
 
@@ -26,10 +26,10 @@ RUN npm run build
 
 RUN ls -l /usr/src/app
 
-ENV REACT_APP_BACKEND_URL=http://localhost:3000/
+ENV REACT_APP_BACKEND_URL=http://docker_network:3000/
 
-ENV PORT=3001
+# ENV PORT=3001
 
-EXPOSE 3001
+# EXPOSE 3001
 
 CMD ["npm", "start"]
