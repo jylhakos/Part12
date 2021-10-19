@@ -24,4 +24,4 @@ RUN npm install -g nodemon
 
 RUN npm install
 
-CMD npm run dev --port 3000
+CMD npm run dev --port 3001

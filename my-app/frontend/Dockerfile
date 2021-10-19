@@ -31,4 +31,4 @@ COPY . ./
 
 RUN ls -l /usr/src/app/
 
-CMD ["npm", "start", "--port", "3001"]
+CMD ["npm", "start", "--port", "3000"]

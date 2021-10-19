@@ -365,7 +365,7 @@ app.post('/api/persons', (request, response, next) => {
 
     persons = persons.concat(person)
 
-    console.log(person)
+    console.log('person', person)
 
     // 3.14, 3.18
     person.save().then(person => {

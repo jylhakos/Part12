@@ -27,7 +27,7 @@ const App = () => {
 
       console.log('personObject', personObject.name, personObject.phone)
 
-      console.log('persons', persons)
+      // console.log('persons', persons)
 
       const personExists = persons.filter((person) => person.name === personObject.name)
 
@@ -39,9 +39,11 @@ const App = () => {
 
         // $ npm install axios
 
-        axios.post('http://localhost:3001/persons', personObject)
+        axios.post('http://localhost:3001/api/persons', personObject)
         .then(response => {
-          console.log(response)
+
+          console.log('response', response)
+          
           setPersons(persons.concat(response.data))
         })
 

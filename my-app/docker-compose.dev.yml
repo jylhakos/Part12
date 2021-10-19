@@ -18,11 +18,11 @@ services:
       - ./backend/:/usr/src/app
       - ./backend/node_modules:/usr/src/app/node_modules
     ports:
-      - 3000:3000
+      - 3001:3001
     expose:
-      - "3000"
+      - "3001"
     environment:
-      - PORT=3000
+      - PORT=3001
     networks:
       - my-app-network
   frontend:
@@ -35,11 +35,11 @@ services:
       - ./frontend/:/usr/src/app
       - ./frontend/node_modules:/usr/src/app/node_modules
     ports:
-      - 3001:3001
+      - 3000:3000
     expose:
-      - "3001"
+      - "3000"
     environment:
-      - PORT=3001
+      - PORT=3000
     networks:
       - my-app-network
 networks:

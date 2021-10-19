@@ -14,11 +14,11 @@ services:
     volumes:
       - ./backend/:/usr/src/app
     ports:
-      - 3000:3000
+      - 3001:3001
     expose:
-      - "3000"
+      - "3001"
     environment:
-      - PORT=3000
+      - PORT=3001
     networks:
       - my-app-network
   frontend:
@@ -30,11 +30,11 @@ services:
     volumes:
       - ./frontend/:/usr/src/app
     ports:
-      - 3001:3001
+      - 3000:3000
     expose:
-      - "3001"
+      - "3000"
     environment:
-      - PORT=3001
+      - PORT=3000
     networks:
       - my-app-network
 networks:
