@@ -325,7 +325,7 @@ app.delete('/api/persons/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
-// $ curl -X "POST" http://localhost:3001/api/persons -H "Content-Type: application/json" -d "{\"name\":\"Jane Austin\", \"phone\":\"0123456789\"}"
+// $ curl -X "POST" http://localhost:3001/api/persons -H "Content-Type: application/json" -d "{\"name\":\"Ada Lovelace\", \"phone\":\"39-44-5323523\"}"
 
 // 3.5, 3.6, 3.19
 app.post('/api/persons', (request, response, next) => {
