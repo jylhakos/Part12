@@ -23,6 +23,8 @@ RUN npm install -g npm
 
 RUN npm install
 
+RUN npm install -g react-scripts
+
 COPY . ./
 
 RUN ls -l /usr/src/app

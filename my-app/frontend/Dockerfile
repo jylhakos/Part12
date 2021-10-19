@@ -21,6 +21,8 @@ RUN npm install -g npm
 
 ENV NODE_ENV=production
 
+RUN npm install -g react-scripts
+
 RUN npm install
 
 RUN npm run build
