@@ -1,0 +1,46 @@
+# docker-compose.dev.yml
+# $ npm install
+# $ docker-compose -f docker-compose.dev.yml down --volumes
+# $ docker-compose -f docker-compose.dev.yml up --build
+# $ docker exec -it <CONTAINER ID> bash
+# http://localhost:3000/todos
+
+version: '3.8'
+
+services:
+  backend:
+    image: my-app-backend
+    container_name: my-app-backend
+    build:
+      context: backend/.
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./backend/:/usr/src/app
+      - ./backend/node_modules:/usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    environment:
+      - PORT=3000
+    networks:
+      - my-app-network
+  frontend:
+    image: my-app-frontend
+    container_name: my-app-frontend
+    build:
+      context: frontend/.
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./frontend/:/usr/src/app
+      - ./frontend/node_modules:/usr/src/app/node_modules
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    environment:
+      - PORT=3001
+    networks:
+      - my-app-network
+networks:
+  my-app-network:

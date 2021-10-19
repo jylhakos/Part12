@@ -1,0 +1,91 @@
+# docker-compose.dev.yml
+# $ docker-compose -f docker-compose.yml down --volumes
+# $ docker-compose -f docker-compose.yml up --build
+# $ docker exec -it <CONTAINER ID> bash
+# front-end: http://localhost:8088/
+# back-end: http://localhost:8088/todos
+
+version: '3.8'
+
+services:
+  nginx:
+    container_name: todo-proxy
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8088:80
+    depends_on:
+      - server
+      - app
+    networks:
+      - todo-network
+  server:
+    image: todo-backend
+    container_name: todo-backend
+    build: todo-backend/.
+    volumes:
+      - ./todo-backend/:/usr/src/app
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+      - REDIS_URL=redis://redis:6378
+      - PORT=3000
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - todo-network
+  app:
+    image: todo-frontend
+    container_name: todo-frontend
+    build: ./todo-frontend
+    volumes:
+      - ./todo-frontend/:/usr/src/app
+      - ./todo-frontend/build:/usr/share/nginx/html
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    environment:
+      - PORT=3001
+      - REACT_APP_BACKEND_URL=http://localhost:3000/
+    container_name: todo-frontend
+    networks:
+      - todo-network
+  mongo:
+    image: mongo
+    container_name: todo-mongo
+    ports:
+      - 27017:27017
+    expose:
+      - "27017"
+    volumes:
+      - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./todo-backend/mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    networks:
+      - todo-network
+  redis:
+    image: redis:latest
+    container_name: todo-redis
+    ports:
+      - 6378:6378
+    command: ['redis-server', '--port', '6378', '--appendonly', 'yes']
+    volumes:
+      - ./todo-backend/redis_data:/data
+    networks:
+      - todo-network
+volumes:
+  mongo_data:
+  redis_data:
+networks:
+  todo-network:

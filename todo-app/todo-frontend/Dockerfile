@@ -1,4 +1,5 @@
 # Dockerfile
+# $ npm install
 # $ nmcli dev show | grep 'IP4.DNS'
 # $ docker build . -t todo-frontend
 # $ docker run -p 3001:3001 todo-frontend
@@ -6,24 +7,42 @@
 
 FROM node:16
 
+RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
+
+COPY ./package.json .
+
+COPY ./package-lock.json .
 
 COPY . .
 
-# RUN npm config set package-lock false
+RUN npm config set package-lock false
 
-# RUN npm install -g npm@latest
+RUN npm install -g npm
 
-# RUN npm install
+ENV NODE_ENV=production
 
-RUN npm ci
+RUN npm install
 
-RUN CI=true npm test
+RUN npm install -g react-scripts
 
-ENV REACT_APP_BACKEND_URL=http://localhost:3000/
+RUN npm run build
+
+COPY . ./
+
+RUN ls -l /usr/src/app/
+
+# RUN ls -l /usr/src/app/node_modules/
+
+# RUN cat /usr/src/app/package.json
+
+COPY ./build /bin/www
+
+# ENV REACT_APP_BACKEND_URL=http://localhost:3000/
 
 ENV PORT=3001
 
 EXPOSE 3001
 
-CMD ["npm", "start"]
+CMD ["npm", "start", "--port", "3001"]

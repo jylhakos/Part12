@@ -16,7 +16,7 @@ COPY . .
 
 RUN npm config set package-lock false
 
-# RUN npm install -g npm@latest
+# RUN npm install -g npm
 
 RUN npm install
 

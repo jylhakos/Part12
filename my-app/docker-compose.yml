@@ -1,0 +1,41 @@
+# docker-compose.dev.yml
+# $ docker-compose -f docker-compose.yml down --volumes
+# $ docker-compose -f docker-compose.yml up --build
+
+version: '3.8'
+
+services:
+  backend:
+    image: my-app-backend
+    container_name: my-app-backend
+    build:
+      context: backend/.
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/:/usr/src/app
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    environment:
+      - PORT=3000
+    networks:
+      - my-app-network
+  frontend:
+    image: my-app-frontend
+    container_name: my-app-frontend
+    build:
+      context: frontend/.
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/:/usr/src/app
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    environment:
+      - PORT=3001
+    networks:
+      - my-app-network
+networks:
+  my-app-network:

@@ -28,4 +28,6 @@ RUN npm install
 
 # ENV REDIS_URL='redis://redis:6378'
 
-CMD npm start --port 3000
+# CMD npm start --port 3000
+
+CMD npm run dev --port 3000

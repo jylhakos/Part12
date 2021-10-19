@@ -1,7 +1,7 @@
 node_modules/**/*
 mongo_data/**/*
-.expo/*
-.expo-shared
+redis_data/**/*
+
 npm-debug.*
 *.jks
 *.p8
