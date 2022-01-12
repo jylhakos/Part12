@@ -256,5 +256,5 @@ Browse Docker manuals at the following link.
 https://docs.docker.com/
 
 
-![alt text](https://github.com/jylhakos/Part12/docker.png?raw=true)
+![alt text](https://github.com/jylhakos/Part12/blob/main/docker.png?raw=true)
 
